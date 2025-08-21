@@ -1,37 +1,69 @@
 # 42_Net_Practice
 
+_Discovering the basics of networking._
+
+---
+
 ## 📍 IP Address
 
 ### What is it?
-**IP (Internet Protocol) addresses** enable communication between devices and allow them to connect to the internet.
-The devices connected to a network are called **hosts**.
+An **IP (Internet Protocol) address** enables communication between devices and allows them to connect to the internet. Devices connected to a network are called **hosts**.
 
 ### How is it assigned?
-IP addresses are typically assigned by the router using **DHCP (Dynamic Host Configuration Protocol)**, which automatically provides an IP address to any device that connects to a network.
+IP addresses are usually assigned by the router using **DHCP (Dynamic Host Configuration Protocol)**, which automatically provides an IP address to any device that connects to a network.
 
-### What does it mean?
-Example: 
-IP Address: ''' 192.168.1.204 '''
+---
 
-Mask: ''' 255.255.255.0 '''
+### IP Address Structure Diagram
 
-Each of the numbers between the dots are called **octets**, and can be between 0 and 255.
-The first 3 octets are the **Network Portion** of the IP address.
-The last octet is the **Host Portion** of the IP address.
+```
+IP Address Example: 192.168.1.204
+Mask:             255.255.255.0
 
-### What is a subnet mask/netmask
-If the octet is 255 we know that the corresponding octet from the IP address will always stay the same in a network. So all the devices in that network will have those same octets.
-If the octet is 0, the corresponding octet from the IP address can be any number between 0 and 255.
+┌───────────── Network Portion ────┐┌─ Host ─┐
+192       .   168      .   1       .   204
+│             │             │         │
+│             │             │         └───── Host Identifier (unique per device)
+│             │             └──────────────── Network Identifier
+│             └────────────────────────────── Network Identifier
+└──────────────────────────────────────────── Network Identifier
+```
 
-## Default Gateway
-It is the router, it allows for hosts to communicate with other devices outside of their network.
+- The first three octets (`192.168.1`) are the **Network Portion**.
+- The last octet (`204`) is the **Host Portion**.
 
-## How many IP addresses are there?
-Originally it would be 256, but some are reserved.
+---
 
-- The first one is the **network address**: ''' 192.168.1.0 '''
-- The last one is the **broadcast address**: ''' 192.168.1.255 ''' (it communicates wwhat you tell him to everyone)
-- The router: ''' 192.168.1.1 '''
+### What is a subnet mask/netmask?
 
-Result: 253 usable IP addresses
+- If the octet in the mask is `255`, the corresponding octet from the IP address will always stay the same for all devices in the network.
+- If the octet in the mask is `0`, the corresponding octet from the IP address can be any number between 0 and 255 (unique per host).
 
+---
+
+## 🟩 Default Gateway
+
+The **default gateway** is typically the router. It allows hosts to communicate with devices outside of their local network.
+
+---
+
+## 🧮 How many IP addresses are there?
+
+For a typical subnet:
+
+- The first address is the **network address** (e.g., `192.168.1.0`)
+- The last address is the **broadcast address** (e.g., `192.168.1.255`, used to communicate with all devices)
+- The router typically uses the first usable address (e.g., `192.168.1.1`)
+
+**Result:** 253 usable IP addresses per subnet.
+
+---
+
+## 📚 References & Further Reading
+
+- [IP Addressing Basics](https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF)
+- [What is DHCP?](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol)
+
+---
+
+Feel free to contribute or ask questions!
