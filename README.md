@@ -28,6 +28,7 @@ Mask:             255.255.255.0
 └──────────────────────────────────────────── Network Identifier
 ```
 
+- Each number is an octet (beacuse it is composed of 8 bits).
 - The first three octets (`192.168.1`) are the **Network Portion**.
 - The last octet (`204`) is the **Host Portion**.
 
@@ -35,6 +36,7 @@ Mask:             255.255.255.0
 
 ## 🛡️ What is a subnet mask/netmask?
 
+- Defines how big the network is and how many IP addresses are there.
 - If the octet in the mask is `255`, the corresponding octet from the IP address will always stay the same for all devices in the network.
 - If the octet in the mask is `0`, the corresponding octet from the IP address can be any number between 0 and 255 (unique per host).
 
@@ -65,7 +67,7 @@ Public IP addresses are organized by classes:
 
 ---
 
-## 🧮 How many public IP addresses are there?
+## 🧮 How many IP addresses are there in a network?
 
 For a typical subnet:
 - First address: **Network address** (e.g., `192.168.1.0`)
@@ -103,7 +105,7 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 
 - **IPv4**: the old system, 32 bits, 4 numbers separated by dots (e.g., `192.168.1.204`)
 - **IPv6**: the upgrade, 128 bits, 8 groups of hexadecimal numbers (e.g., `2001:0db8:85a3::8a2e:0370:7334`).  
-  There are roughly 340 undecillion IPv6 addresses—so we won't run out!
+  There are roughly 340 undecillion (36 zeros) IPv6 addresses—so we won't run out!
 
 ---
 
@@ -117,7 +119,9 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 ## 🧩 Subnetting
 - **Classful networking** uses the default netmask for a class.
 - **Classless networking** uses a different subnet mask to break networks into smaller segments.
-- 
+- The Host Identifier let's us know how many hosts we can have in that network. To do that we have to transform the submask IP into binary, and then the number of 0's tells us how many hosts we can have in that network: `2 ^ (nbr of 0's) -2` in this case `2^8-2 = 256-2 = 254`
+- This also allows to manipulate how many hosts we can have in our network by adding zeros to our submask binary number, this is called **subnetting**.
+
 ---
 
 ## 📚 References & Further Reading
