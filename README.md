@@ -136,79 +136,10 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 
 💡 Splitting a `/24` network into `/25`s creates **two subnets** with 126 usable IPs each, instead of one big network of 254 hosts.
 
-### **Example 1: subnetting based on network requirements**
-Divide this network in 4 networks. IP: 192.168.1.0 Mask: 255.255.255.0
+### Practical Examples of Subnetting: 
 
-1. Transform the Mask from decimal into binary
-   
-   `11111111.11111111.11111111.00000000`
-   
-3. How many bits do we need to take from the Host identifier into the Network identifier to divide it into 4 networks?
-   Multiply the binary chart by 2:
-   
-   `128 64 32 16 8 4 2 1 (*2) = 256 128 64 32 16 8 4 2`
-   
-5. Use the new chart `256 128 64 32 16 8 4 2` to define how many bits are needed
-   
-   We need 2 bits `4 and 2`
-   
-7. Create the new mask with 2 more bits
-   
-    `11111111.11111111.11111111.11000000`
-   
-10. Transform it into decimal
-    
-    `255.255.255.192`
-   
-12. Find the increment to define the size of the networks and its ranges.
-   (The increment is the last network bit.)
-
-    Using this chart `128 64 32 16 8 4 2 1`
-    
-    The last bit of this byte `11000000` is 64. So that will be our increment.
-    
-14. Create your networks.
-    
-     `192.168.1.0 - 192.168.1.63` (64 IP addresses)
-   
-     `192.168.1.64 - 192.168.1.127` (64 IP addresses)
-
-     `192.168.1.128 - 192.168.1.191` (64 IP addresses)
-
-     `192.168.1.192 - 192.168.1.255` (64 IP addresses)
-    
-16. How many hosts can we have in the networks?
-
-    Our mask has 6 zeros: `11111111.11111111.11111111.11000000`
-    
-    `2^6 - 2` = 62 hosts.
-    
-### **Example 2: subnetting based on host requirements**
-Divide a network in 3 based on how many hosts there are in each network. Network: 10.1.1.0 /24
-Each network is for a coffee shop, and each has to have space for 40 hosts.
-
-1.Convert the Mask to binary
-
-  `/24` means that our mask is `255.255.255.0`
-
-  Binary: `11111111.11111111.11111111.00000000`
-  
-2. Define how many hosts bits we need, so that each network can have 40 hosts.
-   
-    `128 64 32 16 8 4 2 1 (*2) = 256 128 64 32 16 8 4 2`
-   
-     We need 6 bits `64, 32, 16, 8, 4 and 2`
-   
-4. Create the new mask with 6 more bits (reversed for host requirements)
-
-     `11111111.11111111.11111111.00111111`
-
-5. Transform it into decimal
-
-   `255.255.255.63`
-
-6. 
-
+- [Subnetting based on network requirements](https://github.com/Daniela-Padilha/42_Net_Practice/examples/4_networks.txt)
+- [Subnetting based on host requirements](https://github.com/Daniela-Padilha/42_Net_Practice/examples/40_hosts.txt)
 
 ---
 
