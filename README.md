@@ -192,9 +192,4 @@ Divide this network in 4 networks. IP: 192.168.1.0 Mask: 255.255.255.0
 
 ---
 
-Wireless
-IoT
-DMZ
-User
-
 Feel free to contribute or ask questions!
