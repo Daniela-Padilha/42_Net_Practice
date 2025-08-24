@@ -1,4 +1,4 @@
-# Subnetting Based on Host Requirements
+# Subnetting Based on Host Requirements (40 hosts)
 
 ## Exercise
 **Goal:** Divide this network into 3 subnets with 40 hosts each. Calculate the increment and the IP ranges.  
@@ -26,23 +26,57 @@
    We want **40 hosts**.
 
    `256 128 64 32 16 8 4 2`
-                       | |
+             |  |  | | | |
 
-   Borrow **6 bits** from the host portion.
+   Reserve **6 bits** from the host portion.
+   So we have **2 bits** that are not reserved and that we can borrow.
 
 ---
-  
-2. Define how many hosts bits we need, so that each network can have 40 hosts.
+
+## Step 3: Create the New Subnet Mask
    
-    `128 64 32 16 8 4 2 1 (*2) = 256 128 64 32 16 8 4 2`
+   Binary: `11111111.11111111.11111111.11000000`
+
+   Decimal: `255.255.255.192` or `/26`
+
+---
    
-     We need 6 bits `64, 32, 16, 8, 4 and 2`
-   
-4. Create the new mask with 6 more bits (reversed for host requirements)
+## Step 4: Find the Increment
 
-     `11111111.11111111.11111111.00111111`
+   The increment is the value of the **last network bit** in the mask.
 
-5. Transform it into decimal
+   Binary last octet: `11000000` → Increment = **64**.
 
-   `255.255.255.63`
+---
 
+## Step 5: Calculate Subnet Ranges
+
+| Subnet        | Usable Hosts Range     | Broadcast Address |
+|---------------|------------------------|-------------------|
+| 10.1.1.0/26   | 10.1.1.1 – 10.1.1.62   | 10.1.1.63         |
+| 10.1.1.64/26  | 10.1.1.65 – 10.1.1.126 | 10.1.1.127        |
+| 10.1.1.128/26 | 10.1.1.129 – 10.1.1.190| 10.1.1.191        |
+
+(One more available if needed: `10.1.1.254/26`)
+
+---
+
+## Step 6: Calculate Number of Usable Hosts
+
+   We have `6` host bits (6 zeros in the subnet mask).      
+
+   **Number of usable hosts** = `2^6 - 2 = 62` hosts per subnet
+
+---
+
+## Final Answer
+
+- **New mask:** `255.255.255.192 (/26)`  
+- **Increment:** `64`  
+- **Usable hosts per subnet:** `62`  
+- **Five subnet ranges:**  
+  - `10.1.1.0 – 10.1.1.63`  
+  - `10.1.1.64 – 10.1.1.127`  
+  - `10.1.1.128 – 10.1.1.191`
+
+---
