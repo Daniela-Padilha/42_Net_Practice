@@ -117,10 +117,71 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 ---
 
 ## 🧩 Subnetting
+- **Subnetting is dividing a large network into smaller, easier-to-manage networks by “borrowing” some of the host space and making it part of the network.**
+- Subnetting allows you to **manipulate the number of hosts in a network** in a network by creating more networks, and to do that you have to borrow bits from the host portion and adding them to the network portion.
+- The **Host Identifier** tells us how many hosts we can have in that network.  
+  - Convert the subnet mask to **binary**: the number of `0`s indicates the host portion.  
+  - Formula: `2 ^ (number of 0's) - 2`.  
+    - Example: `2^8 - 2 = 256 - 2 = 254` usable hosts.
+- `/24` means **the first 24 bits are for the network, and the last 8 bits are for devices**.
 - **Classful networking** uses the default netmask for a class.
-- **Classless networking** uses a different subnet mask to break networks into smaller segments.
-- The Host Identifier let's us know how many hosts we can have in that network. To do that we have to transform the submask IP into binary, and then the number of 0's tells us how many hosts we can have in that network: `2 ^ (nbr of 0's) -2` in this case `2^8-2 = 256-2 = 254`
-- This also allows to manipulate how many hosts we can have in our network by adding zeros to our submask binary number, this is called **subnetting**.
+- **Classless networking** uses a custom subnet mask to break networks into smaller segments.
+
+### 🔍 Visual Example
+| Subnet | Binary Netmask                               | Network Bits | Host Bits | Total Hosts | Usable Hosts |
+|--------|---------------------------------------------|-------------|-----------|-------------|--------------|
+| `/24`  | 11111111.11111111.11111111.00000000          | 24          | 8         | 256         | 254          |
+| `/25`  | 11111111.11111111.11111111.10000000          | 25          | 7         | 128         | 126          |
+| `/26`  | 11111111.11111111.11111111.11000000          | 26          | 6         | 64          | 62           |
+
+💡 Splitting a `/24` network into `/25`s creates **two subnets** with 126 usable IPs each, instead of one big network of 254 hosts.
+
+### **Example:**
+Divide this network in 4 networks. IP: 192.168.1.0 Mask: 255.255.255.0
+
+1. Transform the Mask from decimal into binary
+   
+   `11111111.11111111.11111111.00000000`
+   
+3. How many bits do we need to take from the Host identifier into the Network identifier to divide it into 4 networks?
+   Multiply the binary chart by 2:
+   
+   `128 64  32 16 8 4 2 1 (*2) = 256 128 64 32 16 8 4 2`
+   
+5. Use the new chart `256 128 64 32 16 8 4 2` to define how many bits are needed
+   
+   We need 2 bits `4 and 2`
+   
+7. Create the new mask with 2 more bits
+   
+    `11111111.11111111.11111111.11000000`
+   
+10. Transform it into decimal
+    
+    `255.255.255.192`
+   
+12. Find the increment to define the size of the networks and its ranges.
+   (The increment is the last network bit.)
+
+    Using this chart `128 64 32 16 8 4 2 1`
+    
+    The last bit of this byte `11000000` is 64. So that will be our increment.
+    
+14. Create your networks.
+    
+     `192.168.1.0 - 192.168.1.63` (64 IP addresses)
+   
+     `192.168.1.64 - 192.168.1.127` (64 IP addresses)
+
+     `192.168.1.128 - 192.168.1.191` (64 IP addresses)
+
+     `192.168.1.192 - 192.168.1.255` (64 IP addresses)
+    
+16. How many hosts can we have in the networks?
+
+    Our mask has 6 zeros: `11111111.11111111.11111111.11000000`
+    
+    `2^6 - 2` = 62 hosts.
 
 ---
 
@@ -130,5 +191,10 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 - [What is DHCP?](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol)
 
 ---
+
+Wireless
+IoT
+DMZ
+User
 
 Feel free to contribute or ask questions!
