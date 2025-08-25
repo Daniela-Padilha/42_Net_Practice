@@ -21,7 +21,7 @@ Remember that `127.0.0.0` is a reserved IP for network testing on your own devic
 3. We know that the incremet is `32`, that means the subnets on `192.168.91.x` start at multiples of 32:
 `.0, .32, .64, .96, .128, .160, .192, .224`
 
-4. Since the IP address of Client B is set to `192.168.36.222`, then we can infer that the network range is between `192.168.36.192` and `192.168.36.223`.
+4. Since the IP address of Host B is set to `192.168.36.222`, then we can infer that the network range is between `192.168.36.192` and `192.168.36.223`.
 
 5. So the last octet can be any number between `193 and 222`, as long as they are **not equal to an IP address that already exists in the network**. Remember that the first octet is reserved for the Network address and the last is reserved for the Broadcast address.
 
@@ -37,3 +37,4 @@ Remember that `127.0.0.0` is a reserved IP for network testing on your own devic
 
 
 ## ✅ Solution
+<img width="1097" height="790" alt="Captura de ecrã 2025-08-26 001228" src="https://github.com/user-attachments/assets/df32568d-66e0-4881-9ce0-e21f9bbaee67" />
