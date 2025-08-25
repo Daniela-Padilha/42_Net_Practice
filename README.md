@@ -4,6 +4,35 @@ _Discovering the basics of networking._
 
 ---
 
+## 🌐 What is a Network?
+
+A **network** is a group of devices (computers, phones, servers, IoT devices, etc.) connected together to share data and resources.  
+Networking allows devices to:
+- **Communicate:** Send and receive information.
+- **Share resources:** Access printers, files, or internet connections.
+- **Scale:** Easily add new devices.
+
+### Key Components:
+- **Hosts:** Devices connected to a network.
+- **Switches/Routers:** Hardware that directs traffic.
+- **Medium:** Wi-Fi or cables used to transmit data.
+- **Protocols:** Rules that define communication, like TCP/IP.
+
+---
+
+## 🔗 TCP/IP
+
+**TCP/IP (Transmission Control Protocol / Internet Protocol)** is the foundation of how devices communicate on networks and the internet.  
+- **IP:** Handles addressing and routing. It ensures data packets get to the right device.  
+- **TCP:** Ensures reliability. It breaks data into packets, tracks them, resends lost ones, and reassembles them in order.
+
+📦 **Analogy:**  
+Think of sending a package:  
+- **IP** is the postal system that finds the route.  
+- **TCP** ensures your package arrives safely and in the right order.
+
+---
+
 ## 📍 What is an IP Address?
 
 An **IP (Internet Protocol) address** is a unique combination of numbers that enables communication between devices and allows them to connect to the internet. Devices connected to a network are called **hosts**.
@@ -138,8 +167,8 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 
 ### Practical Examples of Subnetting: 
 
-- [Subnetting based on network requirements](https://github.com/Daniela-Padilha/42_Net_Practice/examples/4_networks.txt)
-- [Subnetting based on host requirements](https://github.com/Daniela-Padilha/42_Net_Practice/examples/40_hosts.txt)
+- [Subnetting based on network requirements](examples/4_networks.md)
+- [Subnetting based on host requirements](examples/40_hosts.md)
 
 ---
 
