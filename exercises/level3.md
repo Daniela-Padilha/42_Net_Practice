@@ -33,3 +33,4 @@ Remember that `127.0.0.0` is a reserved IP for network testing on your own devic
 
 
 ## ✅ Solution
+<img width="880" height="804" alt="Captura de ecrã 2025-08-26 002543" src="https://github.com/user-attachments/assets/237b1241-53d1-4f8a-baee-e9b28731d061" />
