@@ -31,4 +31,5 @@ Remember that the ranges of the router interfaces must never overlap.
 
 ## ✅ Solution
 
+<img width="753" height="697" alt="Screenshot from 2025-09-01 17-42-24" src="https://github.com/user-attachments/assets/91cbf1b6-dd6c-402b-aa33-0a678e9090ef" />
 
