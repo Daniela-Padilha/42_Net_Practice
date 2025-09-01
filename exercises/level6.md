@@ -23,3 +23,4 @@ Remember that the left column of the routing table is the destination, and the r
 
 ## ✅ Solution
 
+<img width="893" height="660" alt="Screenshot from 2025-09-01 18-57-18" src="https://github.com/user-attachments/assets/fc1a19f9-85f7-475b-978a-edd7085bead9" />
