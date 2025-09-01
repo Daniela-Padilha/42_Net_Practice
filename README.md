@@ -149,10 +149,10 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 - **Subnetting is dividing a large network into smaller, easier-to-manage networks by “borrowing” some of the host space and making it part of the network.**
 - Subnetting allows you to **manipulate the number of hosts in a network** in a network by creating more networks, and to do that you have to borrow bits from the host portion and adding them to the network portion.
 - The **Host Identifier** tells us how many hosts we can have in that network.  
-  - Convert the subnet mask to **binary**: the number of `0`s indicates the host portion.  
+  - Convert the subnet mask to **binary**: the number of `0`s indicates the host portion.
   - Formula: `2 ^ (number of 0's) - 2`.  
     - Example: `2^8 - 2 = 256 - 2 = 254` usable hosts.
-- `/24` means **the first 24 bits are for the network, and the last 8 bits are for devices**.
+- CIDR is writing the mask like this: `/24` which means **the first 24 bits are for the network, and the last 8 bits are for devices**.
 - **Classful networking** uses the default netmask for a class.
 - **Classless networking** uses a custom subnet mask to break networks into smaller segments.
 
@@ -169,6 +169,36 @@ Phones use public IPs from cellular providers when not on Wi-Fi.
 
 - [Subnetting based on network requirements](examples/4_networks.md)
 - [Subnetting based on host requirements](examples/40_hosts.md)
+
+---
+
+## 🖲 Switch
+
+Destributes packages between devices in the same network. It cannot connect to a network outside of its own.
+
+---
+
+## 🔌 Router
+
+Connects multiple networks together. It has an interface for every network it connects to. The range on one of its interfaces must never overlap the range of its other interfaces. An overlap would imply the interfaces belong to the same network.
+
+---
+
+## 🗄 Routing Table
+
+Is a data table stored in a router or networkhost that lists all the routes to a particular network destination.
+
+### 📫 Destination
+
+- It is the left column of the table.
+- It contains the IP addresses that you want to send a package to, combined with the mask/CIDR of that network.
+- It can be set to `default` or `0.0.0.0/0` if you don't want to specify a destination. This way any device inside the network can be the destination.
+
+
+### 📨 Next Hop
+
+- It is the right column of the table.
+- It contains the IP address of the next router that you need to send the packages to in order to reach the destination network.
 
 ---
 
