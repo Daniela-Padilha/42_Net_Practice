@@ -34,3 +34,6 @@ Remember that the left column of the routing table is the destination, and the r
 
 
 ## ✅ Solution
+
+<img width="983" height="660" alt="Screenshot from 2025-09-01 19-33-21" src="https://github.com/user-attachments/assets/338a2ef1-0af3-4c8e-8c82-ec1ed7a1c110" />
+
