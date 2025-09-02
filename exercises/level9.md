@@ -71,3 +71,5 @@ Remember that `192.0.0.0` and `10.0.0.0` are private IP addresses.
 
 
 ## ✅ Solution
+
+<img width="698" height="643" alt="Screenshot from 2025-09-02 18-57-02" src="https://github.com/user-attachments/assets/b6893700-3fb0-403d-b2be-41c3f635b97f" />
