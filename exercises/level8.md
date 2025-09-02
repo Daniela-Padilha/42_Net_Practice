@@ -42,3 +42,7 @@ Example:
 5. Now all we have left to do is fill the routing tables. Considering that Routers R1 and R2's next hops must be each others, Routers R1 destination must be the same destination as Internet, and the destination of clients C and D must be default.
 
 ## ✅ Solution
+
+<img width="871" height="733" alt="Screenshot from 2025-09-02 16-31-06" src="https://github.com/user-attachments/assets/4f3c3f08-1f5c-4485-a9c3-000a7b290b22" />
+
+
