@@ -30,7 +30,7 @@ Remember that the left column of the routing table is the destination, and the r
 
 	From `112.198.14.65` to `112.198.14.126` (it could also be the left over range `112.198.14.129 – 112.198.14.190`, it is indiferent in this case)
 
-3. Know all we have left to do is fill the routing tables. Considering that host A destination must be host C and vice versa. The routers must have their next hops as each other to allow communication both ways.
+3. Now all we have left to do is fill the routing tables. Considering that host A destination must be host C and vice versa. The routers must have their next hops as each other to allow communication both ways.
 
 
 ## ✅ Solution
