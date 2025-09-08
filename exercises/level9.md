@@ -67,7 +67,7 @@ Remember that `192.0.0.0` and `10.0.0.0` are private IP addresses.
 
 ### Goal 6
 
-1. Make sure no pirvate or reserved IP is being used. Connect the routing table of Internet I to the host C by setting up a route with the IP of host C as the destination.
+1. Make sure no private or reserved IP is being used. Connect the routing table of Internet I to the host C by setting up a route with the IP of host C as the destination.
 
 
 ## ✅ Solution
