@@ -72,4 +72,6 @@ Remember that `192.0.0.0` and `10.0.0.0` are private IP addresses.
 1. Make sure no pirvate or reserved IP is being used. Connect the routing table of Internet I to the host C by setting up a route with the IP of host C as the destination.
 
 
-## ✅ Solution
+## ✅ Solutio
+<img width="870" height="793" alt="Screenshot from 2025-09-08 16-41-26" src="https://github.com/user-attachments/assets/a434776d-2b4e-409b-a721-61a752509c84" />
+n
