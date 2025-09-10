@@ -26,50 +26,26 @@ Remember that the left column of the routing table is the destination, and the r
 
 Remember that `192.0.0.0` and `10.0.0.0` are private IP addresses.
 
-### Goal 1
+### Goals
+We have `4 networks`:
 
-1. The Interface H11 has to be in the same network as the Interface H21 and router interface R11. So the mask and the IP address network portion has to be the same. And the host portion has to be inside the range, which is from `154.204.161.1` to `154.204.161.126`.
-
-### Goal 2
-
-1. The routing table of host H4 sets the next hop to `154.204.161.129`, so that will be Interface R23 IP.
-
-2. The Interface H41 has to be in the same network as the router interface R23. So the mask and the IP address network portion has to be the same. Interface H41 has a pre-set mask of `/26` or `255.255.255.192`.
-
-3. Make sure no private or reserved IP is being used. And that the Interface R22 and Interface H31 are in the same network.
-
-### Goal 3
-
-1. The Internet I routing table destination can be set to default to be able to communicate with more than one host.
+- Network 1: Between Interface H11, Interface H21 and Interface R11
+- Network 2: Between Interface H41 and Interface R23
+- Network 3: Between Interface R21 and Interface R13
+- Network 4: Between Interface H31 and Interface R22
 
 
+For the 1st Network we set interface H21 and interface H11 in a way that they are in the same network as interface R11 (which has the IP and Mask pre-set).
 
+For the 2nd Network, we set interface R23 to be in the same network as interface H41 (which has the IP and Mask pre-set).
 
+For the 3rd Network, we set the mask of interface R13 to the same as interface R21 (already pre-set). And in the router R1 router table, the destination of the first route can be set to default.
 
+For the 4th Network, we have to be careful not to overlap the other router R2 interfaces, to ensure that we can use a mask that gives us a small range like `255.255.255.240`, which  will give us `14` usable hosts per range. And then we choose a range that does not overlap any of the ones already set.
 
+Lastly, the destination of the internet can never be set to default, so we set the Network portion of the IP to the same that we used for every other interface, and the host portion of the IP can be set to 0. The CIDR can be set to `/24` so it includes all the ranges used in the interfaces.
 
-### Goal 4
-
-1. Host A is already connected to router R1, and host D is already connected to router R2, so all that is left to do is connect router R2 to router R1.
-
-2. Interface R13 and Interface R21 have to be in the same network. So the mask and the IP address network portion has to be the same. Interface R21 has a pre-set mask of `/30` or `255.255.255.252`, with an increment of `4` and `2` usable hosts per network.
-
-3. The routing table of router R2 has to have the next hop set to the IP of Interface R13.
-
-4. The routing table of router R1 has to have a route to reach host D, where the next hop is the IP of Interface R21, and the destination can be default.
-
-### Goal 5
-
-1. The routing table of Host B needs to have the next hop set to the IP of Interface R11. And the destination can be default.
-
-2. Interface C1 and Interface R22 have to be in the same network. So the mask and the IP address network portion has to be the same. But the Interfaces on the router cannot overlap.
-
-3. The routing table of Host C needs to have the next hop set to the IP of Interface R22.
-
-
-### Goal 6
-
-1. Make sure no pirvate or reserved IP is being used. Connect the routing table of Internet I to the host C by setting up a route with the IP of host C as the destination.
+So if every IP in the exercise starts with `154.204.161.` then the internet destiantion will be `154.204.161.0/24`.
 
 
 ## ✅ Solutio
